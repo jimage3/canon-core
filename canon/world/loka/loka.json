@@ -13,10 +13,5 @@
   "continents": [
     "claric","norvian","briot","ocus","dravon","tania","hestia","hereska"
   ]
-
-    "canon_version": "v1.0.0-core",
-    "schema": "../../schemas/world.schema.json",
-    "source_svg": "atlas/Loka_Landmass_canonized.svg"
-  }
 }
 
