@@ -1,0 +1,25 @@
+{
+  "id": "loka.world",
+  "name": "Loka",
+  "atlas": {
+    "landmass_svg": "../canon-assets/world/loka/atlas/Loka_Landmass_canonized.svg",
+    "projection": "equirectangular",
+    "resolution": "2048x1024"
+  },
+  "terrain": {
+    "base_height": "../canon-assets/world/loka/terrain/Loka_Terrain_baseHeight.png",
+    "watermask": "../canon-assets/world/loka/terrain/Loka_Terrain_watermask.png",
+    "relief": "../canon-assets/world/loka/terrain/Loka_Terrain_relief.png",
+    "bit_depth": 16,
+    "resolution": "4096x2048",
+    "sea_level": 32768,
+    "mode": "realistic",
+    "units": "relative-0..65535"
+  },
+  "continents": ["Claric","Norvian","Briot","Oucus","Dravon","Tania","Hestia","Hereska"],
+  "metadata": {
+    "canon_version": "v1.0.0-core",
+    "schema": "../../schemas/world.schema.json",
+    "source_svg": "atlas/Loka_Landmass_canonized.svg"
+  }
+}
