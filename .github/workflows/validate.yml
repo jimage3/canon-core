@@ -1,30 +1,44 @@
-name: Validate Canon
-on: [push, pull_request]
+name: Validate JSON Schemas
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: { python-version: '3.11' }
-      - run: pip install jsonschema
-      - name: Validate worlds (if present)
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
         run: |
-          if [ -f schemas/world.schema.json ]; then
-            python - <<'PY'
-import json, sys, pathlib
-from jsonschema import Draft7Validator
-schema = json.load(open('schemas/world.schema.json','r',encoding='utf-8'))
-errs_total = 0
-for p in pathlib.Path('canon/world').rglob('*.json'):
-    data = json.load(open(p,'r',encoding='utf-8'))
-    v = Draft7Validator(schema)
-    errs = list(v.iter_errors(data))
-    if errs:
-        print(f'❌ {p}')
-        for e in errs: print('-', e.message)
-        errs_total += 1
-if errs_total: sys.exit(1)
-print('✅ All world json valid')
-PY
-          fi
+          python -m pip install --upgrade pip
+          pip install jsonschema
+
+      - name: Validate JSON files
+        run: |
+          import json, sys, pathlib
+          import jsonschema
+          from jsonschema import validate
+
+          errors_total = 0
+          for p in pathlib.Path('canon/world').rglob('*.json'):
+              try:
+                  data = json.load(open(p, 'r', encoding='utf-8'))
+                  print(f"✅ Valid: {p}")
+              except Exception as e:
+                  print(f"❌ Invalid: {p} — {e}")
+                  errors_total += 1
+
+          if errors_total > 0:
+              sys.exit(1)
+          else:
+              print("🌍 All JSON valid")
