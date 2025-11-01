@@ -23,3 +23,26 @@
     "source_svg": "atlas/Loka_Landmass_canonized.svg"
   }
 }
+
+
+# 1) 
+git submodule deinit -f canon-assets
+git rm -f canon-assets
+rm -rf .git/modules/canon-assets
+
+# 2) คอมมิตการลบ
+git commit -m "fix(core): remove wrong self submodule canon-assets"
+git push origin main
+
+# 3) ใส่ซับโมดูลให้ถูก (ชี้ไป repo assets จริง)
+git submodule add https://github.com/jimage3/canon-assets.git canon-assets
+git add .gitmodules canon-assets
+git commit -m "chore(core): link canon-assets submodule (correct repo)"
+git push origin main
+
+# 4) ดึงซับโมดูลให้พร้อมใช้งาน
+git submodule update --init --recursive
+
+# 5) เข้าไปตั้ง branch ให้ปกติในซับโมดูล
+cd canon-assets
+git switch main 2>/dev/
