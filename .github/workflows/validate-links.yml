@@ -1,0 +1,20 @@
+name: Validate Asset Links
+on: [push, pull_request]
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate URLs in config
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request
+          cfg = json.load(open("canon/core/paths.json"))
+          for k, url in cfg.items():
+              try:
+                  urllib.request.urlopen(url)
+                  print(f"✅ {k} OK")
+              except Exception as e:
+                  print(f"❌ {k} failed: {e}")
+                  exit(1)
+          PY
