@@ -1,3 +1,6 @@
 [submodule "canon-tools"]
 	path = canon-tools
 	url = https://github.com/jimage3/canon-tools.git
+[submodule "canon-assets"]
+	path = canon-assets
+	url = https://github.com/jimage3/canon-assets.git
