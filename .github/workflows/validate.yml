@@ -1,0 +1,30 @@
+name: Validate Canon
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install jsonschema
+      - name: Validate worlds (if present)
+        run: |
+          if [ -f schemas/world.schema.json ]; then
+            python - <<'PY'
+import json, sys, pathlib
+from jsonschema import Draft7Validator
+schema = json.load(open('schemas/world.schema.json','r',encoding='utf-8'))
+errs_total = 0
+for p in pathlib.Path('canon/world').rglob('*.json'):
+    data = json.load(open(p,'r',encoding='utf-8'))
+    v = Draft7Validator(schema)
+    errs = list(v.iter_errors(data))
+    if errs:
+        print(f'❌ {p}')
+        for e in errs: print('-', e.message)
+        errs_total += 1
+if errs_total: sys.exit(1)
+print('✅ All world json valid')
+PY
+          fi

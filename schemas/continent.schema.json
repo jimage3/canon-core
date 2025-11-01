@@ -1,0 +1,23 @@
+{
+  "$schema":"http://json-schema.org/draft-07/schema#",
+  "title":"Continent Entity Schema",
+  "type":"object",
+  "required":["id","name","world","bbox"],
+  "properties":{
+    "id":{"type":"string","pattern":"^continent_[A-Za-z0-9_-]+$"},
+    "name":{"type":"string"},
+    "world":{"type":"string","const":"loka.world"},
+    "bbox":{
+      "type":"object",
+      "required":["minLon","minLat","maxLon","maxLat"],
+      "properties":{
+        "minLon":{"type":"number","minimum":-180,"maximum":180},
+        "maxLon":{"type":"number","minimum":-180,"maximum":180},
+        "minLat":{"type":"number","minimum":-90,"maximum":90},
+        "maxLat":{"type":"number","minimum":-90,"maximum":90}
+      }
+    },
+    "notes":{"type":"string"}
+  },
+  "additionalProperties":true
+}
