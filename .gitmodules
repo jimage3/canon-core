@@ -1,0 +1,3 @@
+[submodule "canon-assets"]
+	path = canon-assets
+	url = https://github.com/jimage3/canon-assets
