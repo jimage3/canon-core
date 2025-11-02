@@ -1,6 +1,7 @@
 {
   "id": "loka",
   "name": "loka",
+  "version": "2025-11-02",
   "projection": "equirectangular",
   "size": { "width": 4096, "height": 2048 },
   "assets": {
@@ -9,6 +10,5 @@
     "terrain_relief": "https://raw.githubusercontent.com/jimage3/canon-assets/main/world/loka/terrain/loka_terrain_relief.png",
     "terrain_baseheight": "https://raw.githubusercontent.com/jimage3/canon-assets/main/world/loka/terrain/loka_terrain_baseheight.png"
   },
-  "continents": ["claric","norvian","briot","ocus","dravon","tania","hestia","hereska"],
-  "version": "2025-11-02"
+  "continents": ["claric","norvian","briot","ocus","dravon","tania","hestia","hereska"]
 }
