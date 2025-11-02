@@ -1,0 +1,21 @@
+{
+  "$id": "plate.schema.json",
+  "type": "object",
+  "required": ["world","plates"],
+  "properties": {
+    "world": { "type": "string" },
+    "version": { "type": "string" },
+    "plates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id","name"],
+        "properties": {
+          "id":    { "type": "string" },
+          "name":  { "type": "string" },
+          "color": { "type": "string" }
+        }
+      }
+    }
+  }
+}
