@@ -6,7 +6,7 @@
   "size": { "width": 4096, "height": 2048 },
   "assets": {
     "base": "https://raw.githubusercontent.com/jimage3/canon-assets/main/world/loka",
-    "landmass_svg": "https://raw.githubusercontent.com/jimage3/canon-assets/main/world/loka/atlas/loka_landmass_canonized.svg",
+    "landmass_svg": "https://raw.githubusercontent.com/jimage3/canon-assets/main/world/loka/atlas/loka_landmass_canonized.svg?raw=1",
     "terrain_relief": "https://raw.githubusercontent.com/jimage3/canon-assets/main/world/loka/terrain/loka_terrain_relief.png",
     "terrain_baseheight": "https://raw.githubusercontent.com/jimage3/canon-assets/main/world/loka/terrain/loka_terrain_baseheight.png"
   },
