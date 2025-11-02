@@ -1,12 +1,12 @@
 {
   "id": "loka",
   "name": "loka",
-  "version": "2025-11-02",
+  "version": "2025-11-02-landmass-lock",
   "projection": "equirectangular",
   "size": { "width": 4096, "height": 2048 },
   "assets": {
-    "base": "https://raw.githubusercontent.com/jimage3/canon-assets/main/world/loka",
-    "landmass_svg": "https://raw.githubusercontent.com/jimage3/canon-assets/main/world/loka/atlas/loka_landmass_canonized.svg?raw=1",
+    "landmass_svg": "https://github.com/jimage3/canon-assets/blob/main/world/loka/atlas/loka_landmass_canonized.svg?raw=1",
+    "plate_boundaries_svg": "https://raw.githubusercontent.com/jimage3/canon-assets/main/world/loka/atlas/loka_plate_boundaries.svg",
     "terrain_relief": "https://raw.githubusercontent.com/jimage3/canon-assets/main/world/loka/terrain/loka_terrain_relief.png",
     "terrain_baseheight": "https://raw.githubusercontent.com/jimage3/canon-assets/main/world/loka/terrain/loka_terrain_baseheight.png"
   },
